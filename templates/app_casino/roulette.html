@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    @keyframes spinning {
+      from { transform: rotate(0deg) }
+      20% { transform: rotate(720deg) }
+      40% { transform: rotate(1140deg) }
+      60% { transform: rotate(1500deg) }
+      to { transform: rotate(1800deg) }
+    }
+    .spin_1 {
+      animation-name: spinning;
+      animation-duration: 6s;
+      animation-iteration-count: 1;
+      /* linear | ease | ease-in | ease-out | ease-in-out */
+      animation-timing-function: linear;
+    }
+</style>
+  <div class="container mt-3 mb-3" align="center">
+    <div class="row">
+      <div class="col s1">
+        <img src="{% static 'app_casino/roulette.png' %}" class="spin_1"/>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <form>
+      <div class="row">
+        <div class="input-group mb-2">
+          <input type="number" class="form-control" placeholder="Red bet amount" name="red_bet">
+          <span class="input-group-text" id="addon-wrapping">Red x2</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-group mb-2">
+          <input type="number" class="form-control" placeholder="Black bet amount" name="black_bet">
+          <span class="input-group-text" id="addon-wrapping">Black x2</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-group mb-2">
+          <input type="number" class="form-control" placeholder="Green bet amount" name="green_bet">
+          <span class="input-group-text" id="basic-addon2">Green x10</span>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-dark">Place Bets</button>
+    </form>
+  </div>
+{% endblock content %}
