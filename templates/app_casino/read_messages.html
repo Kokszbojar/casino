@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cipher{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="container mt-1">
+      <h3>
+      Hi {{ user.username }}!
+      </h3>
+      <h6>
+        Your messages:<br><br>
+        {% for message in messages %}
+            <div class="container mt-1">
+                {{ message }}
+            </div><br>
+        {% endfor %}
+      </h6>
+    </div>
+{% else %}
+    <div class="container mt-1">
+      <h3>You are not logged in</h3>
+    </div>
+{% endif %}
+{% endblock content %}

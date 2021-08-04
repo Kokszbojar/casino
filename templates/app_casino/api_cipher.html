@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cipher{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="container mt-1">
+      <h3>
+      Hi {{ user.username }}!
+      </h3>
+      <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" placeholder="Your message" name="message">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark" name="action">Save a message</button>
+      </form>
+    </div>
+{% else %}
+    <div class="container mt-1">
+      <h3>You are not logged in</h3>
+    </div>
+{% endif %}
+{% endblock content %}

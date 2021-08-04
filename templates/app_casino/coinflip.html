@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}Coinflip{% endblock %}
+
 {% block content %}
 <style>
     #coin div {
@@ -54,7 +56,7 @@
             <div class="col mb-3">
                 <h4>Your heads bet: {{ heads_bet }}</h4>
                 <h4>Your tails bet: {{ tails_bet }}</h4>
-                <h4>The flip was {{ bet_value }}</h4>
+                <h4>The flip was: {{ bet_value }}</h4>
                 <h4>Your balance: {{ balance }}</h4>
             </div>
         </div>

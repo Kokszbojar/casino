@@ -40,13 +40,15 @@
     </nav>
     {% block content %}
     {% if user.is_authenticated %}
-    <div class="container mt-2">
+    <div class="container mt-1">
       <h3>
       Hi {{ user.username }}!
       <br>
       Your balance: {{ user.gambler.balance }}
-    </h3>
+      </h3>
+    </div>
     {% else %}
+    <div class="container mt-1">
       <h3>You are not logged in</h3>
     </div>
     {% endif %}
