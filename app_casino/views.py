@@ -28,7 +28,7 @@ def coinflip(request):
         obj = request.user.gambler
         heads_bet = request.POST.get('heads_bet')
         tails_bet = request.POST.get('tails_bet')
-        if (heads_bet == "" or heads_bet == None) and (tails_bet == "" or tails_bet == None):
+        if (heads_bet == "" or heads_bet == None or int(heads_bet) <= 0) and (tails_bet == "" or tails_bet == None or int(tails_bet) <= 0):
             stuff_for_frontend = {
                 'heads_bet': 0,
                 'tails_bet': 0,
