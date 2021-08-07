@@ -22,6 +22,8 @@ def update_balance(request):
         obj.balance += 100
         obj.save()
         return render(request, 'base.html')
+    else:
+        return render(request, 'base.html')
 
 def coinflip(request):
     if request.user.is_authenticated:
@@ -64,6 +66,15 @@ def coinflip(request):
                 }
 
                 return render(request, 'app_casino/coinflip.html', stuff_for_frontend)
+            
+            else:
+                stuff_for_frontend = {
+                    'heads_bet': 0,
+                    'tails_bet': 0,
+                    'bet_value': 'No flip yet',
+                    'balance': obj.balance,
+                }
+                return render(request, 'app_casino/coinflip.html', stuff_for_frontend)
     
     else:
         return render(request, 'base.html')
@@ -91,7 +102,6 @@ def read_messages(request):
         encrypted_messages = models.Message.objects.filter(user = chatter.id).values('text')
         dict = string.printable
         messages = []
-        print(encrypted_messages)
         for mes in encrypted_messages:
             letter_id_list = []
             dict = string.printable
